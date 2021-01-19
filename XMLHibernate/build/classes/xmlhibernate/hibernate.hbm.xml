@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="xmlhibernate.Person" table="XmlPerson">
+        <id name="id" type="int" length="255" column="ID">
+            <generator class="increment"></generator>
+        </id>
+        <property name="Fname" type="string" length="255" column="Fname"></property>
+        <property name="Lname" type="string" length="255" column="Lname"></property>
+        <property name="admin" type="boolean" length="8" column="Admin"></property>
+        
+    </class>
+    
+</hibernate-mapping>

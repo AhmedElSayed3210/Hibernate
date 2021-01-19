@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+
+    <class name="xml2.Employee" table="Employee">
+    <id name="id" type="int" length="200" column="EMPLOYEE_ID">
+        <generator class="increment"/>
+    </id>
+    <property name="name" type="string" length="255" column="Name"></property>
+    <one-to-one name="employeedetails"  class="xml2.EmployeeDetails" cascade="save-update"/>
+    
+    </class>
+    
+    
+
+    <class name="xml2.EmployeeDetails" table="EmplDetials">
+    <id name="id" type="int" length="200" column="EMPLOYEE_ID">
+        <generator class="foreign">
+            <param name="property">employee</param>
+        </generator>
+    </id>
+    <property name="phone" type="string" length="255" column="Phone"></property>
+    <property name="email" type="string" length="255" column="Email"></property>
+    
+    <one-to-one name="employee"  class="xml2.Employee"/>
+    
+    </class>
+    
+    
+    
+</hibernate-mapping>

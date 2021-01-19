@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="xml_many_t_many.Center" table="Center">
+        <id name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="string" length="255" column="name"/>
+        <set name="cors" cascade="all">
+            <key column="Cent_id"/>
+            <many-to-many class="xml_many_t_many.Courses" column="Cor_id"/>
+            
+        </set>
+        
+    </class>
+    <class name="xml_many_t_many.Courses" table="Courses">
+        <id name="id" type="int" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="string" length="255" column="name"/>
+       
+        <set name="cent" cascade="all">
+            <key column="Cor_id"/>
+            <many-to-many class="xml_many_t_many.Center" column="Cen_id"/>
+            
+        </set>
+        
+    </class>
+
+</hibernate-mapping>

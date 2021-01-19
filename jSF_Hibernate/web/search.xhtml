@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        
+         <center>
+        <h:form>
+            <h:outputLabel value="ID :"/>
+            <h:inputText value="#{employee.id}" id="id"/><br/>
+            
+            <h:outputLabel value="Name :"/>
+            <h:outputLabel value="#{employee.name}" id="na"/><br/>
+            
+            <h:outputLabel value="Position :"/>
+            <h:outputLabel value="#{employee.position}" id="po"/><br/>
+            
+            <h:outputLabel value="Salary :"/>
+            <h:outputLabel value="#{employee.salary}" id="sa"/><br/>
+            
+            <h:commandButton value="Save" action="#{employee.search()}">
+             <f:ajax render="na po sa ms" execute="@form"/>
+            </h:commandButton>
+            
+            <h:outputLabel value="#{employee.msg}" id="ms"/>
+            
+           
+        </h:form>
+        </center>
+        
+    </h:body>
+</html>
+

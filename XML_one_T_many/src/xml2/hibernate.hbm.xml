@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+    <class name="xml2.Center" table="Center">
+        <id name="id" type="int" length="100" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="centername" type="string" length="200" column="centername"></property>
+        <set name="cours" cascade="all">
+            <key column="C_ID"/>
+            <one-to-many class="xml2.Courses"/>
+        </set>
+    </class>
+    
+    
+    <class name="xml2.Courses" table="Courses">
+        <id name="id" type="int" length="100" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="coursename" type="string" length="200" column="coursename"></property>
+    </class>
+    
+    
+</hibernate-mapping>

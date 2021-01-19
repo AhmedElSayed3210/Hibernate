@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="hibernateproject.User" table="UserData">
+        <id name="id" column="id">
+            <generator class="increment"/>
+            
+        </id>
+        <property name="name" type="string" length="255" column="name"/>
+        <property name="email" type="string" length="255" column="Email"/>
+        <property name="adress" type="string" length="255" column="Adress"/>
+        
+        <set name="bok" cascade="all">
+            <key column="U_ID"/>
+            <one-to-many class="hibernateproject.Books"/>
+        </set>
+        
+    </class>
+    
+    <class name="hibernateproject.Books" table="BookS">
+        <id name="id" column="id">
+            <generator class="increment"/>
+            
+        </id>
+        <property name="bookName" type="string" length="255" column="name"/>
+        
+        
+    </class>
+</hibernate-mapping>
